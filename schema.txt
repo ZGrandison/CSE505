@@ -1,0 +1,14 @@
+| Nuclide      |
+| Z | N | Name |
+
+Nuclide(Z, N, Name)
+
+| Energy Levels  |
+| Z | N | Energy |
+
+EnergyLevel(Z, N, Energy)
+
+| DecayMode                                      |
+| Z(i) | N(i) | Z(f) | N(f) | Type | Probability |
+
+DecayMode(Zi, Ni, Zf, Nf, Type, Probability)
