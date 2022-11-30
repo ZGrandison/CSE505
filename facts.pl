@@ -12,7 +12,7 @@
 		open('facts/nuclides.pl', write, OUT),
 		forall(
 			nuclide(Z, N, Name),
-			format(OUT, 'nuclide(~w, ~w, ~w).~n', [Z, N, Name])
+			format(OUT, 'nuclide(~w, ~w, \'~w\').~n', [Z, N, Name])
 		),
 		close(OUT)
 	),
