@@ -1,3 +1,10 @@
+:- table nuclide(_, _, _, po(<)).
+:- table level(_, _, _, po(<)).
+:- table decay(_, _, _, _, _, _, po(<)).
+:- table node(_, _, _, po(<)).
+:- table edge(_, _, _, _, _, _, po(<)).
+:- table path(_, _, _, _, _, _, po(<)).
+
 node(Z, N, E) :-
 	nuclide(Z, N, _),
 	level(Z, N, E).
