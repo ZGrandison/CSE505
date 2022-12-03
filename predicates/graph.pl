@@ -10,4 +10,4 @@ path(Z1, N1, E1, Z2, N2, E2, P, [Step]) :-
 path(Z1, N1, E1, Z3, N3, E3, P, [Step|Steps]) :-
 	edge(Z1, N1, E1, Z2, N2, E2, P1, Step),
 	path(Z2, N2, E2, Z3, N3, E3, P2, Steps),
-	P is (P1 * P2) / 100.
+	P is (P1 * P2).
