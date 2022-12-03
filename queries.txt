@@ -1,0 +1,13 @@
+Possible Queries:
+
+Basic:
+	- Does a decay path exist?
+	- What is the probability of that path occurring?
+	- What steps are involved?
+
+Advanced:
+	- What is the highest probability path to/from a given destination/source?
+	- Which path has the fewest steps?
+	- What is the shortest decay path with at least 30% chance of occurring?
+	- How many different nuclides can we reach from a given starting point?
+	- Is there a path that only uses specific decay types?
