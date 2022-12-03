@@ -1,4 +1,3 @@
-:- table decay(_, _, _, _, _, _, _, _, po(<)) as subsumptive.
 :- table edge(_, _, _, _, _, _, po(<)) as subsumptive.
 :- table path(_, _, _, _, _, _, po(<)) as subsumptive.
 
