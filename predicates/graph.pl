@@ -1,5 +1,5 @@
-:- table edge(_, _, _, _, _, _, po(<)) as subsumptive.
-:- table path(_, _, _, _, _, _, po(<)) as subsumptive.
+:- table edge(_, _, _, _, _, _, po(>)) as subsumptive.
+:- table path(_, _, _, _, _, _, po(>)) as subsumptive.
 
 edge(Z1, N1, E1, Z2, N2, E2, P, Step) :-
 	decay(Z1, N1, E1, Step, Z2, N2, E2, P).
