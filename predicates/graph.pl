@@ -1,13 +1,13 @@
 :- table edge(_, _, _, _, _, _, po(<)) as subsumptive.
 :- table path(_, _, _, _, _, _, po(<)) as subsumptive.
 
-edge(Z1, N1, E1, Z2, N2, E2, P) :-
-	decay(Z1, N1, E1, _, Z2, N2, E2, P).
+edge(Z1, N1, E1, Z2, N2, E2, P, Step) :-
+	decay(Z1, N1, E1, Step, Z2, N2, E2, P).
 
-path(Z1, N1, E1, Z2, N2, E2, P) :-
-	edge(Z1, N1, E1, Z2, N2, E2, P).
+path(Z1, N1, E1, Z2, N2, E2, P, [Step]) :-
+	edge(Z1, N1, E1, Z2, N2, E2, P, Step).
 
-path(Z1, N1, E1, Z3, N3, E3, P) :-
-	edge(Z1, N1, E1, Z2, N2, E2, P1),
-	path(Z2, N2, E2, Z3, N3, E3, P2),
+path(Z1, N1, E1, Z3, N3, E3, P, [Step|Steps]) :-
+	edge(Z1, N1, E1, Z2, N2, E2, P1, Step),
+	path(Z2, N2, E2, Z3, N3, E3, P2, Steps),
 	P is (P1 * P2) / 100.
