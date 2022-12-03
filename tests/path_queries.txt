@@ -1,0 +1,9 @@
+forall(
+path(88, 126, E1, Z2, N2, E2, P, Steps),
+format('path(88,126,~w, ~w,~w,~w, ~w, ~w).~n', [E1, Z2, N2, E2, P, Steps])
+).
+
+forall(
+path(92, 143, E1, Z2, N2, E2, P, Steps),
+format('path(92,143,~w, ~w,~w,~w, ~w, ~w).~n', [E1, Z2, N2, E2, P, Steps])
+).
