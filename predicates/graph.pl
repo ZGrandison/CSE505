@@ -3,8 +3,7 @@
 :- table path(_, _, _, _, _, _, po(<)) as subsumptive.
 
 edge(Z1, N1, E1, Z2, N2, E2, P) :-
-	decay(Z1, N1, E1, P1, Z2, N2, E2, P2),
-	P is (P1 * P2) / 100.
+	decay(Z1, N1, E1, _, Z2, N2, E2, P).
 
 path(Z1, N1, E1, Z2, N2, E2, P) :-
 	edge(Z1, N1, E1, Z2, N2, E2, P).
