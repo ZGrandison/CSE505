@@ -1,4 +1,4 @@
-:- table edge(_, _, _, _, _, _, po(>), lattice(fewer_steps/3)) as subsumptive.
+:- table edge(_, _, _, _, _, _, po(>), min) as subsumptive.
 :- table path(_, _, _, _, _, _, po(>), lattice(fewer_steps/3)) as subsumptive.
 
 /*
