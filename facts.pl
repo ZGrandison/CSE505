@@ -27,7 +27,7 @@
 	maplist(assert, Data),
 	write('DONE\n').
 
-:-	write('Saving to facts/levels.csv...'),
+:-	write('Saving to facts/levels.pl...'),
 	setup_call_cleanup(
 		open('facts/levels.pl', write, OUT),
 		forall(
