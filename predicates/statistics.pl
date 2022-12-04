@@ -28,6 +28,12 @@ count_edges_to(Z, N, E, Count) :- aggregate_all(
 	Count
 ).
 
+count_paths(Z1, N1, E1, Z2, N2, E2, Count) :- aggregate_all(
+	count,
+	path(Z1, N1, E1, Z2, N2, E2, _, _),
+	Count
+).
+
 count_paths_from(Z, N, E, Count) :- aggregate_all(
 	count,
 	path(Z, N, E, _, _, _, _, _),
