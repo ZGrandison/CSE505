@@ -10,9 +10,9 @@ count_levels(Z, N, Count) :- aggregate_all(
 	Count
 ).
 
-count_edges(Count) :- aggregate_all(
+count_edges(Z1, N1, E1, Z2, N2, E2, Count) :- aggregate_all(
 	count,
-	edge(_, _, _, _, _, _, _, _),
+	edge(Z1, N1, E1, Z2, N2, E2, _, _),
 	Count
 ).
 
