@@ -1,5 +1,20 @@
-:- table edge(_, _, _, _, _, _, po(>), min) as subsumptive.
-:- table path(_, _, _, _, _, _, po(>), lattice(fewer_steps/3)) as subsumptive.
+/*
+	Use partial ordering to prioritize highest probability.
+	Use min for comparing string decay codes.
+	Use 'subsumptive' to avoid possible cycles.
+*/
+:-	table edge(
+		_, _, _, _, _, _, po(>), min
+	) as subsumptive.
+
+/*
+	Use partial ordering to prioritize highest probability.
+	Use fewer_steps/3 to prioritize shorter paths.
+	Use 'subsumptive' to avoid possible cycles.
+*/
+:-	table path(
+		_, _, _, _, _, _, po(>), lattice(fewer_steps/3)
+	) as subsumptive.
 
 /*
 	Aggregation method used for comparing lists of steps.
