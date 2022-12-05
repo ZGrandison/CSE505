@@ -1,9 +1,9 @@
 Possible Queries:
 
 Basic:
-	- Does a decay path exist?
-	- What is the probability of that path occurring?
-	- What steps are involved?
+	- Does a decay path exist? X
+	- What is the probability of that path occurring? X
+	- What steps are involved? X
 
 Advanced:
 	- What is the highest probability path to/from a given destination/source?
@@ -11,3 +11,76 @@ Advanced:
 	- What is the shortest decay path with at least 30% chance of occurring?
 	- How many different nuclides can we reach from a given starting point?
 	- Is there a path that only uses specific decay types?
+
+
+Test Queries:
+Based around path from (3, 8, 0) to (5, 6, 0), which has 2 paths
+These paths are:
+	- (3,8,0) -> (4,7,320.4) -> (4,7,0) -> (5,6,2124.693) -> (5,6,0) | Total path probability: 0.0000024178
+	- (3,8,0) -> (4,7,320.4) -> (4,7,0) -> (5,6,0) | Total path probability: 0.00042119
+
+Query Results (If there's an (X) next to the query, it's the wrong result, if there's an (?), then I'm not sure):
+	- path_probability(3,8,0,5,6,0,P). -> P = 0.00042119000000000005.
+
+	- path_exists(3,8,0,5,6,0). -> True.
+
+	- path_contains_step(3,8,0,5,6,0, 'IT'). -> True.
+
+	- path_starts_with(3,8,0,5,6,0, 'B-'). -> True.
+
+	- print_edges(3,8,0,5,6,0). -> True. (X)
+
+	- print_edges_from(3,8,0). ->
+		(3,8,0) -> (4,7,2654)
+		P = 0.17
+		Type = B-
+
+		(3,8,0) -> (4,7,3400)
+		P = 0.009
+		Type = B-
+
+		...
+
+		(3,8,0) -> (4,7,7030)
+		P = 0.0086
+		Type = B-
+
+		(3,8,0) -> (4,7,8020)
+		P = 0.155
+		Type = B-
+
+		true.
+
+	- print_paths(3,8,0,5,6,0). ->
+		(3,8,0) -> (5,6,0)
+		P = 0.00042119000000000005
+		Steps = [B-,IT,B-]
+		true. (? Probably wrong since paths is plural, doesn't include the alternate path)
+
+	- print_paths_from(3,8,0). -> (3,8,0) -> (5,6,6791.8)
+		P = 4.981899999999999e-5
+		Steps = [B-,IT,B-]
+		(3,8,0) -> (5,6,7285.51)
+		P = 2.3099999999999996e-7
+		Steps = [B-,IT,B-]
+		(3,8,0) -> (5,6,9876)
+		P = 2.387e-5
+		Steps = [B-,IT,B-]
+
+		...
+
+		(3,8,0) -> (4,7,8813)
+		P = 0.089
+		Steps = [B-]
+		(3,8,0) -> (4,7,2654)
+		P = 0.17
+		Steps = [B-]
+		true. (? This is technically not wrong, depending on how its interpreted, but it is wrong if this query means to print all possible paths, even duplicates)
+
+	- count_edges(3,8,0,5,6,0,C). -> C = 0. (X)
+
+	- count_paths(3,8,0,5,6,0,C). -> C = 1. (X)
+
+	- count_paths_from(3,8,0,C). -> C = 21. (?)
+
+	- count_paths_from(6,14,0,C). -> C = 2. (X, look at line 162 in decay probabilties)

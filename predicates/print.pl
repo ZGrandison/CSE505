@@ -16,7 +16,7 @@ print_edges(Z1, N1, E1, Z2, N2, E2) :- forall(
 print_edges_from(Z1, N1, E1) :- forall(
 	edge(Z1, N1, E1, Z2, N2, E2, P, Type),
 	format(
-		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nType = ~w~n~n'
+		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nType = ~w~n~n',
 		[Z1, N1, E1, Z2, N2, E2, P, Type]
 	)
 ).
@@ -25,7 +25,7 @@ print_edges_from(Z1, N1, E1) :- forall(
 print_edges_to(Z2, N2, E2) :- forall(
 	edge(Z1, N1, E1, Z2, N2, E2, P, Type),
 	format(
-		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nType = ~w~n~n'
+		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nType = ~w~n~n',
 		[Z1, N1, E1, Z2, N2, E2, P, Type]
 	)
 ).
