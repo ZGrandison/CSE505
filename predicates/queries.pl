@@ -6,12 +6,12 @@
 %	Returns true if there is a path on record
 %	between two energy levels.
 path_exists(Z1, N1, E1, Z2, N2, E2) :-
-	path(Z1, N1, E1, Z2, N2, E2, _, _).
+	path_aggregated(Z1, N1, E1, Z2, N2, E2, _, _).
 
-%	Returns the probability associated with
+%	Returns the highest probability associated with
 %	a given decay path, or 0 if not available.
 path_probability(Z1, N1, E1, Z2, N2, E2, P) :- (
-	path(Z1, N1, E1, Z2, N2, E2, P1, _)
+	path_aggregated(Z1, N1, E1, Z2, N2, E2, P1, _)
 	-> P = P1
 	;  P = 0
 ).
