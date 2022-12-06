@@ -3,6 +3,25 @@
 	about the graph to console.
 */
 
+%	Print all nuclides on record.
+print_nuclides() :- forall(
+	nuclide(Z, N, Name),
+	(
+		A is (Z + N),
+		format('~w-~w~n', [A, Name])
+	)
+).
+
+%	Print every energy state for every nuclide.
+print_levels() :- forall(
+	level(Z, N, E),
+	(
+		nuclide(Z, N, Name),
+		A is (Z + N),
+		format('~w-~w, ~w keV~n', [A, Name, E])
+	)
+).
+
 %	Print all edges between two arbitrary energy levels
 print_edges(Z1, N1, E1, Z2, N2, E2) :- forall(
 	edge(Z1, N1, E1, Z2, N2, E2, P, Type),
