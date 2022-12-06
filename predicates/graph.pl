@@ -54,12 +54,16 @@ fewer_steps(S1, S2, S) :-
 	length(S2, L2),
 	(L1 < L2 -> S = S1 ; S = S2).
 
+%	Get edge tabled according to highest probability
 edge_aggregated(Z1, N1, E1, Z2, N2, E2, P, Step) :-
 	decay(Z1, N1, E1, Step, Z2, N2, E2, P).
 
+%	Get path consisting with most likely edge
 path_aggregated(Z1, N1, E1, Z2, N2, E2, P, [Step]) :-
 	edge_aggregated(Z1, N1, E1, Z2, N2, E2, P, Step).
 
+%	Get path consisting of highest probability edges
+%	and tabled according to shortest list of steps
 path_aggregated(Z1, N1, E1, Z3, N3, E3, P, [Step|Steps]) :-
 	edge_aggregated(Z1, N1, E1, Z2, N2, E2, P1, Step),
 	path_aggregated(Z2, N2, E2, Z3, N3, E3, P2, Steps),
