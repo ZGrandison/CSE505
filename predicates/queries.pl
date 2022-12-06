@@ -53,3 +53,15 @@ path_min_n_steps(Z1, N1, E1, Z2, N2, E2, X) :-
 	path(Z1, N1, E1, Z2, N2, E2, _, Steps),
 	length(Steps, N),
 	N >= X.
+
+%	Returns true if a path with probability >= X
+%	exists between (Z1,N1,E1) and (Z2,N2,E2).
+path_min_probability(Z1, N1, E1, Z2, N2, E2, X) :-
+	path(Z1, N1, E1, Z2, N2, E2, P, _),
+	P >= X.
+
+%	Returns true if a path with probability <= X
+%	exists between (Z1,N1,E1) and (Z2,N2,E2).
+path_max_probability(Z1, N1, E1, Z2, N2, E2, X) :-
+	path(Z1, N1, E1, Z2, N2, E2, P, _),
+	P =< X.
