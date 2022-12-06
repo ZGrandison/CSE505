@@ -28,7 +28,9 @@ Query Results (If there's an (X) next to the query, it's the wrong result, if th
 
 	- path_starts_with(3,8,0,5,6,0, 'B-'). -> True.
 
-	- print_edges(3,8,0,5,6,0). -> True. (X)
+	- print_edges(3,8,0,5,6,0). -> True.
+		- NOTE:	There aren't any direct connections between (3,8,0) and (5,6,0).
+				This predicate is working as intended.
 
 	- print_edges_from(3,8,0). ->
 		(3,8,0) -> (4,7,2654)
@@ -57,6 +59,8 @@ Query Results (If there's an (X) next to the query, it's the wrong result, if th
 		Steps = [B-,IT,B-]
 		true. (? Probably wrong since paths is plural, doesn't include the alternate path)
 
+		- NOTE:	Has since been corrected using ":- table path/8 as subsumptive."
+
 	- print_paths_from(3,8,0). -> (3,8,0) -> (5,6,6791.8)
 		P = 4.981899999999999e-5
 		Steps = [B-,IT,B-]
@@ -77,10 +81,17 @@ Query Results (If there's an (X) next to the query, it's the wrong result, if th
 		Steps = [B-]
 		true. (? This is technically not wrong, depending on how its interpreted, but it is wrong if this query means to print all possible paths, even duplicates)
 
-	- count_edges(3,8,0,5,6,0,C). -> C = 0. (X)
+		- NOTE:	Now prints all paths, including those with identical Steps lists.
 
-	- count_paths(3,8,0,5,6,0,C). -> C = 1. (X)
+	- count_edges(3,8,0,5,6,0,C). -> C = 0.
+		- NOTE:	As mentioned above, there are no direct edges between (3,8,0) and (5,6,0).
+				This predicate is working as intended.
+
+	- count_paths(3,8,0,5,6,0,C). -> C = 1.
+		- NOTE:	Now returns C = 2.
 
 	- count_paths_from(3,8,0,C). -> C = 21. (?)
+		- NOTE:	Now returns C = 22.
 
-	- count_paths_from(6,14,0,C). -> C = 2. (X, look at line 162 in decay probabilties)
+	- count_paths_from(6,14,0,C). -> C = 2. (look at line 162 in decay probabilties)
+		- NOTE: Now returns C = 3.
