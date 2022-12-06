@@ -28,8 +28,28 @@ path_starts_with(Z1, N1, E1, Z2, N2, E2, Step) :-
 	path(Z1, N1, E1, Z2, N2, E2, _, Steps),
 	nth0(0, Steps, Step).
 
-%	Returns true if the last step in
-%	a decay path matches the input argument.
+%	Returns true if the last step in a
+%	decay path matches the input argument.
 path_ends_with(Z1, N1, E1, Z2, N2, E2, Step) :-
 	path(Z1, N1, E1, Z2, N2, E2, _, Steps),
 	last(Steps, Step).
+
+%	Returns true if a path with exactly X steps
+%	exists between (Z1,N1,E1) and (Z2,N2,E2).
+path_n_steps(Z1, N1, E1, Z2, N2, E2, X) :-
+	path(Z1, N1, E1, Z2, N2, E2, _, Steps),
+	length(Steps, X).
+
+%	Returns true if a path with at most X steps
+%	exists between (Z1,N1,E1) and (Z2,N2,E2).
+path_max_n_steps(Z1, N1, E1, Z2, N2, E2, X) :-
+	path(Z1, N1, E1, Z2, N2, E2, _, Steps),
+	length(Steps, N),
+	N =< X.
+
+%	Returns true if a path with at least X steps
+%	exists between (Z1,N1,E1) and (Z2,N2,E2).
+path_min_n_steps(Z1, N1, E1, Z2, N2, E2, X) :-
+	path(Z1, N1, E1, Z2, N2, E2, _, Steps),
+	length(Steps, N),
+	N >= X.
