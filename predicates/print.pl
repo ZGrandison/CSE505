@@ -34,7 +34,7 @@ print_edges_to(Z2, N2, E2) :- forall(
 print_paths(Z1, N1, E1, Z2, N2, E2) :- forall(
 	path(Z1, N1, E1, Z2, N2, E2, P, Steps),
 	format(
-		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n',
+		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n~n',
 		[Z1, N1, E1, Z2, N2, E2, P, Steps]
 	)
 ).
@@ -43,7 +43,7 @@ print_paths(Z1, N1, E1, Z2, N2, E2) :- forall(
 print_paths_from(Z1, N1, E1) :- forall(
 	path(Z1, N1, E1, Z2, N2, E2, P, Steps),
 	format(
-		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n',
+		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n~n',
 		[Z1, N1, E1, Z2, N2, E2, P, Steps]
 	)
 ).
@@ -52,7 +52,7 @@ print_paths_from(Z1, N1, E1) :- forall(
 print_paths_to(Z2, N2, E2) :- forall(
 	path(Z1, N1, E1, Z2, N2, E2, P, Steps),
 	format(
-		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n',
+		'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n~n',
 		[Z1, N1, E1, Z2, N2, E2, P, Steps]
 	)
 ).
