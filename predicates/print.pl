@@ -111,3 +111,27 @@ print_max_n_steps(Z1, N1, E1, Z2, N2, E2, X) :- forall(
 		)
 	)
 ).
+
+%	Print all paths with probability >= X
+print_min_probability(Z1, N1, E1, Z2, N2, E2, X) :- forall(
+	path_min_probability(Z1, N1, E1, Z2, N2, E2, X),
+	(
+		path(Z1, N1, E1, Z2, N2, E2, P, Steps),
+		format(
+			'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n~n',
+			[Z1, N1, E1, Z2, N2, E2, P, Steps]
+		)
+	)
+).
+
+%	Print all paths with probability <= X
+print_max_probability(Z1, N1, E1, Z2, N2, E2, X) :- forall(
+	path_max_probability(Z1, N1, E1, Z2, N2, E2, X),
+	(
+		path(Z1, N1, E1, Z2, N2, E2, P, Steps),
+		format(
+			'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n~n',
+			[Z1, N1, E1, Z2, N2, E2, P, Steps]
+		)
+	)
+).
