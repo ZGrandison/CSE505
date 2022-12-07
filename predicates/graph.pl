@@ -12,8 +12,7 @@
 	"Standard" subsumptive tabling,
 	used to avoid possible cycles.
 */
-:- table edge/8 as subsumptive.
-:- table path/8 as subsumptive.
+:- table (edge/8, path/8) as subsumptive.
 
 %	Edges in this graph are based on decay/8.
 %	If one nuclide decays into another, they have an edge.
@@ -35,16 +34,11 @@ path(Z1, N1, E1, Z3, N3, E3, P, [Step|Steps]) :-
 
 %	Use partial ordering to prioritize highest probability.
 %	Use min for comparing string decay codes.
-%	Use 'subsumptive' to avoid possible cycles.
-:-	table edge_aggregated(
-		_, _, _, _, _, _, po(>), min
-	) as subsumptive.
-
-%	Use partial ordering to prioritize highest probability.
 %	Use fewer_steps/3 to prioritize shorter paths.
 %	Use 'subsumptive' to avoid possible cycles.
-:-	table path_aggregated(
-		_, _, _, _, _, _, po(>), lattice(fewer_steps/3)
+:-	table (
+		edge_aggregated(_, _, _, _, _, _, po(>), min),
+		path_aggregated(_, _, _, _, _, _, po(>), lattice(fewer_steps/3))
 	) as subsumptive.
 
 %	Aggregation method used for comparing lists of steps.
