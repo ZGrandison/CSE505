@@ -37,7 +37,7 @@ path(Z1, N1, E1, Z3, N3, E3, P, [Step|Steps]) :-
 %	Use fewer_steps/3 to prioritize shorter paths.
 %	Use 'subsumptive' to avoid possible cycles.
 :-	table (
-		edge_aggregated(_, _, _, _, _, _, po(>), min),
+		edge_aggregated(_, _, _, _, _, _, po(>), _),
 		path_aggregated(_, _, _, _, _, _, po(>), lattice(fewer_steps/3))
 	) as subsumptive.
 
