@@ -75,3 +75,27 @@ print_paths_to(Z2, N2, E2) :- forall(
 		[Z1, N1, E1, Z2, N2, E2, P, Steps]
 	)
 ).
+
+print_n_steps(Z1, N1, E1, Z2, N2, E2, X) :- forall(
+	path_n_steps(Z1, N1, E1, Z2, N2, E2, X),
+	format(
+		'(~w,~w,~w) -> (~w,~w,~w)~n~n',
+		[Z1, N1, E1, Z2, N2, E2, X]
+	)
+).
+
+print_min_n_steps(Z1, N1, E1, Z2, N2, E2, X) :- forall(
+	path_min_n_steps(Z1, N1, E1, Z2, N2, E2, X),
+	format(
+		'(~w,~w,~w) -> (~w,~w,~w)~n~n',
+		[Z1, N1, E1, Z2, N2, E2, X]
+	)
+).
+
+print_max_n_steps(Z1, N1, E1, Z2, N2, E2, X) :- forall(
+	path_max_n_steps(Z1, N1, E1, Z2, N2, E2, X),
+	format(
+		'(~w,~w,~w) -> (~w,~w,~w)~n~n',
+		[Z1, N1, E1, Z2, N2, E2, X]
+	)
+).
