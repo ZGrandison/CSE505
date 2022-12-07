@@ -79,3 +79,17 @@ count_max_n_steps(Z1, N1, E1, Z2, N2, E2, X, Count) :- aggregate_all(
 	path_max_n_steps(Z1, N1, E1, Z2, N2, E2, X),
 	Count
 ).
+
+%	Count all paths with at least X probability
+count_min_probability(Z1, N1, E1, Z2, N2, E2, X, Count) :- aggregate_all(
+	count,
+	path_min_probability(Z1, N1, E1, Z2, N2, E2, X),
+	Count
+).
+
+%	Count all paths with at most X probabilty
+count_max_probability(Z1, N1, E1, Z2, N2, E2, X, Count) :- aggregate_all(
+	count,
+	path_max_probability(Z1, N1, E1, Z2, N2, E2, X),
+	Count
+).
