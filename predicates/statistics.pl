@@ -58,3 +58,24 @@ count_paths_to(Z, N, E, Count) :- aggregate_all(
 	path(_, _, _, Z, N, E, _, _),
 	Count
 ).
+
+%	Count all paths with exactly n steps
+count_n_steps(Z1, N1, E1, Z2, N2, E2, X, Count) :- aggregate_all(
+	count,
+	path_n_steps(Z1, N1, E1, Z2, N2, E2, X),
+	Count
+).
+
+%	Count all paths with at least n steps
+count_min_n_steps(Z1, N1, E1, Z2, N2, E2, X, Count) :- aggregate_all(
+	count,
+	path_min_n_steps(Z1, N1, E1, Z2, N2, E2, X),
+	Count
+).
+
+%	Count all paths with at most n steps
+count_max_n_steps(Z1, N1, E1, Z2, N2, E2, X, Count) :- aggregate_all(
+	count,
+	path_max_n_steps(Z1, N1, E1, Z2, N2, E2, X),
+	Count
+).
