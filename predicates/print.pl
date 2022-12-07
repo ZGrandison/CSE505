@@ -76,26 +76,38 @@ print_paths_to(Z2, N2, E2) :- forall(
 	)
 ).
 
+%	Print all paths with exactly n steps
 print_n_steps(Z1, N1, E1, Z2, N2, E2, X) :- forall(
 	path_n_steps(Z1, N1, E1, Z2, N2, E2, X),
-	format(
-		'(~w,~w,~w) -> (~w,~w,~w)~n~n',
-		[Z1, N1, E1, Z2, N2, E2, X]
+	(
+		path(Z1, N1, E1, Z2, N2, E2, P, Steps),
+		format(
+			'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n~n',
+			[Z1, N1, E1, Z2, N2, E2, P, Steps]
+		)
 	)
 ).
 
+%	Print all paths with at least n steps
 print_min_n_steps(Z1, N1, E1, Z2, N2, E2, X) :- forall(
 	path_min_n_steps(Z1, N1, E1, Z2, N2, E2, X),
-	format(
-		'(~w,~w,~w) -> (~w,~w,~w)~n~n',
-		[Z1, N1, E1, Z2, N2, E2, X]
+	(
+		path(Z1, N1, E1, Z2, N2, E2, P, Steps),
+		format(
+			'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n~n',
+			[Z1, N1, E1, Z2, N2, E2, P, Steps]
+		)
 	)
 ).
 
+%	Print all paths with at most n steps
 print_max_n_steps(Z1, N1, E1, Z2, N2, E2, X) :- forall(
 	path_max_n_steps(Z1, N1, E1, Z2, N2, E2, X),
-	format(
-		'(~w,~w,~w) -> (~w,~w,~w)~n~n',
-		[Z1, N1, E1, Z2, N2, E2, X]
+	(
+		path(Z1, N1, E1, Z2, N2, E2, P, Steps),
+		format(
+			'(~w,~w,~w) -> (~w,~w,~w)~nP = ~w~nSteps = ~w~n~n',
+			[Z1, N1, E1, Z2, N2, E2, P, Steps]
+		)
 	)
 ).
