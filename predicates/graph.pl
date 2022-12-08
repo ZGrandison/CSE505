@@ -63,3 +63,11 @@ path_aggregated(Z1, N1, E1, Z3, N3, E3, P, [Step|Steps]) :-
 	path_aggregated(Z2, N2, E2, Z3, N3, E3, P2, Steps),
 	P is (P1 * P2).
 
+%	Get path consisting of highest probability edges
+%	This uses the path predicate and iterates through all possible paths,
+%	instead of using partial ordering to get the same result.
+path_aggregated_manual(Z1, N1, E1, Z3, N3, E3, P, S) :-
+	path(Z1, N1, E1, Z3, N3, E3, P, S),
+    \+ (path(Z1, N1, E1, Z3, N3, E3, P1, S2), 
+        S \= S2, 
+        P1 >= P).
